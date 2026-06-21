@@ -111,26 +111,26 @@ python image_batch.py --dir ./photos --action rename --pattern "copy" --new-pref
 
 ## New Powerful Features (image + video optimization)
 
-**Image Compression (WebP, quality/speed balance)**
+### Image Compression (WebP, quality/speed balance)
 ```bash
 python image_batch.py --dir ./photos --action compress --quality 78 --recursive --dry-run
 # 78 = good balance (from media_compressor levels)
 ```
 
-**Video Compression (H.265)**
+### Video Compression (H.265)
 ```bash
 python image_batch.py --dir ./videos --action compress-video --crf 28 --preset medium --recursive
 # crf=28 medium = balanced. Lower crf = better quality/larger
 # Add --mute to strip audio
 ```
 
-**Resize**
+### Resize
 ```bash
 python image_batch.py --dir ./media --action resize --width 1920 --recursive --dry-run
 python image_batch.py --dir ./media --action resize --scale 0.5
 ```
 
-**Video Trim / Mute**
+### Video Trim / Mute
 ```bash
 python image_batch.py --dir ./videos --action trim --start 00:01:30 --end 00:05:00
 python image_batch.py --dir ./videos --action mute --recursive
@@ -145,77 +145,11 @@ All support --dry-run --recursive --output
 
 **Special note for video**: Never use --overwrite or --delete-ext with the same input/output directory. Use a separate output folder. Always dry-run first.
 
-![Image Batch Processor GUI](screenshots/gui.png)
-
-**GUI**
-```bash
-python image_batch.py --gui
-# or ibg
-```
-Select action, fill params (Quality/CRF/Scale/Start/End), Dry Run first!
-
-**Overwrite / Delete options (GUI)**
-- "Overwrite" checkbox (default OFF → saves with _suffix)
-- "Delete extensions after success" field (e.g. jpg,jpeg) → originals removed after processing
-- Video actions with same folder + overwrite are immediately blocked with a warning
-
-**ffmpeg required for video features**
-```bash
-sudo apt install ffmpeg
-```
-
----
-
-## Full Examples
-
-### 1. Safe preview of metadata stripping on a whole tree
-
-```bash
-python image_batch.py \
-  --dir ./samples/input \
-  --action strip_meta \
-  --recursive \
-  --dry-run
-```
-
-### 2. Actually strip metadata and put cleaned copies in a new folder (keeping structure)
-
-```bash
-python image_batch.py \
-  --dir ./samples/input \
-  --action strip_meta \
-  --output ./samples/cleaned \
-  --recursive
-```
-
-### 3. Rename every file that contains "vacation" or "beach" to clean sequential names
-
-```bash
-python image_batch.py \
-  --dir ./samples/input \
-  --action rename \
-  --pattern "vacation" \
-  --new-prefix "vacation_" \
-  --start-num 1 \
-  --recursive
-```
-
-### 4. Rename everything with "photo" or "img" starting from number 100
-
-```bash
-python image_batch.py \
-  --dir ./my-shoot \
-  --action rename \
-  --pattern "photo" \
-  --new-prefix "shoot_" \
-  --start-num 100
-```
-
----
-
 ## GUI (deliberately simple)
 
 The tool also includes a deliberately minimal Tkinter GUI for when you just want to get the job done quickly without typing commands.
+
+![Image Batch Processor GUI](screenshots/image-batch-tool_001.png)
 
 Launch it with:
 
@@ -314,6 +248,53 @@ Pro tip: You can keep the GUI open and run multiple operations on different fold
 - CLI: Large batches, scripting, automation, when you want exact reproducibility and logs you can save.
 
 Both use exactly the same engine. Results will be identical.
+
+---
+
+## Full Examples
+
+### 1. Safe preview of metadata stripping on a whole tree
+
+```bash
+python image_batch.py \
+  --dir ./samples/input \
+  --action strip_meta \
+  --recursive \
+  --dry-run
+```
+
+### 2. Actually strip metadata and put cleaned copies in a new folder (keeping structure)
+
+```bash
+python image_batch.py \
+  --dir ./samples/input \
+  --action strip_meta \
+  --output ./samples/cleaned \
+  --recursive
+```
+
+### 3. Rename every file that contains "vacation" or "beach" to clean sequential names
+
+```bash
+python image_batch.py \
+  --dir ./samples/input \
+  --action rename \
+  --pattern "vacation" \
+  --new-prefix "vacation_" \
+  --start-num 1 \
+  --recursive
+```
+
+### 4. Rename everything with "photo" or "img" starting from number 100
+
+```bash
+python image_batch.py \
+  --dir ./my-shoot \
+  --action rename \
+  --pattern "photo" \
+  --new-prefix "shoot_" \
+  --start-num 100
+```
 
 ---
 
