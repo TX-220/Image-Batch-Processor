@@ -374,7 +374,7 @@ See `requirements.txt`.
 
 MIT License
 
-Copyright (c) 2026 TX-220
+Copyright (c) 2026 TX-220 with assistance from Grok (xAI)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
