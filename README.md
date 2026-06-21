@@ -68,7 +68,7 @@ chmod +x image_batch.py
 ## Usage
 
 ```bash
-python image_batch.py --dir <directory> --action <strip_meta|rename> [options]
+python image_batch.py --dir <directory> --action <strip_meta|rename|compress|compress-video|resize|trim|mute> [options]
 ```
 
 ### Common Options
@@ -188,6 +188,29 @@ python image_batch.py \
   --recursive
 ```
 
+### 3. Rename every file that contains "vacation" or "beach" to clean sequential names
+
+```bash
+python image_batch.py \
+  --dir ./samples/input \
+  --action rename \
+  --pattern "vacation" \
+  --new-prefix "vacation_" \
+  --start-num 1 \
+  --recursive
+```
+
+### 4. Rename everything with "photo" or "img" starting from number 100
+
+```bash
+python image_batch.py \
+  --dir ./my-shoot \
+  --action rename \
+  --pattern "photo" \
+  --new-prefix "shoot_" \
+  --start-num 100
+```
+
 ---
 
 ## GUI (deliberately simple)
@@ -299,29 +322,6 @@ Both use exactly the same engine. Results will be identical.
 - The GUI runs the same functions as the CLI. All the robustness, recursive handling, and metadata stripping logic is shared.
 - For very large jobs or scripting, always prefer the CLI (or call the Python functions directly from your own script).
 - Both interfaces are 100% compatible with each other. You can mix and match.
-
-### 3. Rename every file that contains "vacation" or "beach" to clean sequential names
-
-```bash
-python image_batch.py \
-  --dir ./samples/input \
-  --action rename \
-  --pattern "vacation" \
-  --new-prefix "vacation_" \
-  --start-num 1 \
-  --recursive
-```
-
-### 4. Rename everything with "photo" or "img" starting from number 100
-
-```bash
-python image_batch.py \
-  --dir ./my-shoot \
-  --action rename \
-  --pattern "photo" \
-  --new-prefix "shoot_" \
-  --start-num 100
-```
 
 ---
 
