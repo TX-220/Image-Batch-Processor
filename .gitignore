@@ -36,8 +36,8 @@ env/
 .DS_Store
 Thumbs.db
 
-# Project specific
-samples/
+# Project specific test data (samples/ is gitignored by default to avoid large binaries; add your own test images locally)
+# samples/
 *.log
 
 # Temp
