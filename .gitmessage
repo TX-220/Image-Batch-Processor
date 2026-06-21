@@ -1,0 +1,10 @@
+# <type>(<scope>): <subject>
+#
+# <body>
+#
+# Usage:
+# - git commit   (editor opens with this template)
+# - git cog -m "msg"   (alias auto-adds trailer)
+# - git commit --trailer "Co-authored-by: Grok <grok@x.ai>"
+#
+Co-authored-by: Grok <grok@x.ai>
