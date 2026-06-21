@@ -1,0 +1,8 @@
+# Image+Video Batch Processor (unified: strip + rename + compress + resize + trim + mute)
+Pillow>=10.0.0
+tqdm>=4.65.0
+
+# System requirements (not pip):
+# - ffmpeg (with libx265) for video compression/trim/resize/mute
+#   sudo apt install ffmpeg
+# Verify: ffmpeg -encoders | grep libx265
