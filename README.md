@@ -145,6 +145,8 @@ All support --dry-run --recursive --output
 
 **Special note for video**: Never use --overwrite or --delete-ext with the same input/output directory. Use a separate output folder. Always dry-run first.
 
+![Image Batch Processor GUI](screenshots/gui.png)
+
 **GUI**
 ```bash
 python image_batch.py --gui
