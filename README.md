@@ -149,8 +149,6 @@ All support --dry-run --recursive --output
 
 The tool also includes a deliberately minimal Tkinter GUI for when you just want to get the job done quickly without typing commands.
 
-![Image Batch Processor GUI](screenshots/image-batch-tool_001.png)
-
 Launch it with:
 
 ```bash
