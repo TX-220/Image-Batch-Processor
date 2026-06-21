@@ -2,8 +2,6 @@
 
 Complete, production-grade command-line tool for batch processing images.
 
-**This was an experimental project developed with Claude (Haiku). Later improved significantly with Grok.**
-
 **⚠️⚠️⚠️ IMPORTANT WARNINGS (READ THIS FIRST) ⚠️⚠️⚠️**
 
 **--overwrite (default: False)**
@@ -139,7 +137,7 @@ python image_batch.py --dir ./videos --action mute --recursive
 **Recommended pipeline (run in sequence or script):**
 1. strip_meta
 2. rename
-3. compress / compress-video / resize etc.
+3. compress / compress-video / resize et al.
 
 All support --dry-run --recursive --output
 
@@ -197,6 +195,53 @@ If they don't work yet, run:
 source ~/.bashrc
 ```
 
+## Full Examples
+
+### 1. Safe preview of metadata stripping on a whole tree
+
+```bash
+python image_batch.py \
+  --dir ./samples/input \
+  --action strip_meta \
+  --recursive \
+  --dry-run
+```
+
+### 2. Actually strip metadata and put cleaned copies in a new folder (keeping structure)
+
+```bash
+python image_batch.py \
+  --dir ./samples/input \
+  --action strip_meta \
+  --output ./samples/cleaned \
+  --recursive
+```
+
+### 3. Rename every file that contains "vacation" or "beach" to clean sequential names
+
+```bash
+python image_batch.py \
+  --dir ./samples/input \
+  --action rename \
+  --pattern "vacation" \
+  --new-prefix "vacation_" \
+  --start-num 1 \
+  --recursive
+```
+
+### 4. Rename everything with "photo" or "img" starting from number 100
+
+```bash
+python image_batch.py \
+  --dir ./my-shoot \
+  --action rename \
+  --pattern "photo" \
+  --new-prefix "shoot_" \
+  --start-num 100
+```
+
+---
+
 ## GUI Step-by-Step Walkthrough
 
 1. **Launch the GUI**
@@ -249,53 +294,6 @@ Both use exactly the same engine. Results will be identical.
 
 ---
 
-## Full Examples
-
-### 1. Safe preview of metadata stripping on a whole tree
-
-```bash
-python image_batch.py \
-  --dir ./samples/input \
-  --action strip_meta \
-  --recursive \
-  --dry-run
-```
-
-### 2. Actually strip metadata and put cleaned copies in a new folder (keeping structure)
-
-```bash
-python image_batch.py \
-  --dir ./samples/input \
-  --action strip_meta \
-  --output ./samples/cleaned \
-  --recursive
-```
-
-### 3. Rename every file that contains "vacation" or "beach" to clean sequential names
-
-```bash
-python image_batch.py \
-  --dir ./samples/input \
-  --action rename \
-  --pattern "vacation" \
-  --new-prefix "vacation_" \
-  --start-num 1 \
-  --recursive
-```
-
-### 4. Rename everything with "photo" or "img" starting from number 100
-
-```bash
-python image_batch.py \
-  --dir ./my-shoot \
-  --action rename \
-  --pattern "photo" \
-  --new-prefix "shoot_" \
-  --start-num 100
-```
-
----
-
 ## Notes for power users
 
 - The GUI runs the same functions as the CLI. All the robustness, recursive handling, and metadata stripping logic is shared.
@@ -307,8 +305,6 @@ python image_batch.py \
 ## Sample Data
 
 A `samples/input/` folder is included with deliberately messy real-world style filenames (including a subdirectory) so you can immediately test both features.
-
-**Note:** The `samples/` directory is gitignored in this repo. Use your own test folders or copy example images locally.
 
 Generate your own test data or just use the provided samples.
 
@@ -372,5 +368,5 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
