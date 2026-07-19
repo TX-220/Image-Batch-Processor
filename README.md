@@ -349,9 +349,9 @@ See `requirements.txt`.
 
 ## License
 
-MIT License
+MIT — see [LICENSE](./LICENSE).
 
-Copyright (c) 2026 TX-220 with assistance from <a href="https://x.ai" target="_blank">Grok</a> (xAI)
+Copyright (c) 2026 TX-220 with assistance from [Grok (xAI)](./https://x.ai).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
